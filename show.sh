@@ -20,7 +20,7 @@ elif [[ -d "$input" ]]; then
 
     read -s -p "Enter passphrase: " passphrase
 
-    find $input* -type f -name "*" |
+    find $input -maxdepth 1 -type f -name "*" |
         while read file; do
             if [[ "${file: -4}" == ".asc" && "$file" != *"validate.asc" ]]; then
                 echo -n -e "\n$file\n"
